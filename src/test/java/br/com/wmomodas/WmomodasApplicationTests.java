@@ -1,4 +1,4 @@
-package br.com.wmomodas.wmomodas;
+package br.com.wmomodas;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
