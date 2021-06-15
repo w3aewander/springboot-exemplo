@@ -5,7 +5,13 @@
 <link href="webjars/font-awesome/5.15.2/css/all.min.css" rel="stylesheet">
 <link href="webjars/bootstrap/5.0.1/css/bootstrap.min.css" rel="stylesheet">
 <script src="webjars/bootstrap/5.0.1/js/bootstrap.min.js" ></script>
+<script src="webjars/jquery/1.9.1/jquery.min.js"></script>
+
+
+
 <link rel="stylesheet" type="text/css" th:href="@{/css/estilo.css}">
+<script th:src="@{/js/index.js}"></script>
+
 </head>
 
 <body>
@@ -45,6 +51,9 @@
                     <!--                        <li class="nav-item">-->
                     <!--                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>-->
                     <!--                        </li>-->
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/clientes}">Nossos Clientes</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/contato}">Fale Conosco</a>
                     </li>

@@ -1,11 +1,14 @@
 package br.com.wmomodas.wmomodas;
 
 import br.com.wmomodas.model.Cliente;
+import br.com.wmomodas.model.Position;
 import br.com.wmomodas.persistence.ClienteRepository;
+import br.com.wmomodas.persistence.PositionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
@@ -19,6 +22,11 @@ public class HomeController {
     @Autowired
     ClienteRepository clienteRepository;
 
+    @Autowired
+    PositionRepository positionRepository;
+
+    private static String position = "";
+
     @RequestMapping("/")
     public String home(Model model){
 
@@ -29,6 +37,10 @@ public class HomeController {
         servicos.add("Reformas");
         servicos.add("Fabricação Própria");
 
+
+        Position pos = positionRepository.getById(1L);
+        model.addAttribute("latitude", pos.getLatitude());
+        model.addAttribute("longitude", pos.getLongitude());
 
         model.addAttribute("serverTime", new Date().toString())  ;
         model.addAttribute("servicos", servicos);
@@ -69,8 +81,24 @@ public class HomeController {
         return "home/fabrica";
     }
 
+    @RequestMapping("/clientes")
+    public String clientes(Model model){
+
+        List<Cliente> clientes = clienteRepository.findAll();
+
+        model.addAttribute("clientes", clientes.listIterator());
+
+        return "home/clientes";
+    }
+
     @RequestMapping("/contato")
     public String contato(Model model){
         return "home/contato";
+    }
+
+    @RequestMapping(value="/sendposition", method=RequestMethod.POST)
+    public String sendPosition(@RequestBody String lat, String lng){
+        System.out.println("Latitude: " + lat + "Longitude: " + lng);
+        return "home/position";
     }
 }

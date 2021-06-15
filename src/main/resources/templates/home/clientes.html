@@ -1,0 +1,34 @@
+<html lang="en" xmlns="https://www.thymeleaf.com" xmlns:th="https://www.thymeleaf.com"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layouts/_layout">
+
+
+<div layout:fragment="content">
+
+  <h1 class="text-danger">Nossos clientes</h1>
+
+  <table class="table table-hover table-striped">
+
+    <thead>
+       <tr>
+         <th>RegNo</th>
+         <th>Nome</th>
+         <th>E-mail</th>
+         <th>Celular</th>
+       </tr>
+    </thead>
+    <tbody>
+       <tr th:each="cliente, stat: ${clientes}">
+
+         <td th:text="${stat.index} +1"></td>
+         <td th:text="${cliente.getNome()}"></td>
+         <td th:text="${cliente.getEmail()}"></td>
+         <td th:text="${cliente.getCelular()}"></td>
+
+       </tr>
+    </tbody>
+  </table>
+</div>
+
+
+</html>
