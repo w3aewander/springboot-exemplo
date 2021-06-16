@@ -30,7 +30,7 @@
 		    <groupId>com.zetcode</groupId>
 		    <artifactId>springbootpostgreex</artifactId>
 		    <version>1.0-SNAPSHOT</version>		   
-	        </dependence>
+	         </dependency>
 		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
