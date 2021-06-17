@@ -25,10 +25,13 @@ public class HomeController {
     @Autowired
     PositionRepository positionRepository;
 
+
     private static String position = "";
 
     @RequestMapping("/")
     public String home(Model model){
+
+        positionRepository.save(new Position(1,"0","0"));
 
         model.addAttribute("slogan","Nossa Marca, seu estilo - Nossos Serviços");
 

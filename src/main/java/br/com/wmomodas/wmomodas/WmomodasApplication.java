@@ -18,5 +18,4 @@ public class WmomodasApplication {
 		SpringApplication.run(WmomodasApplication.class, args);
 	}
 
-
 }

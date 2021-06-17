@@ -11,7 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @AllArgsConstructor
-@NoArgsConstructor
+//@NoArgsConstructor
 @Data
 @Entity
 public class Position {
@@ -21,4 +21,9 @@ public class Position {
     private String latitude;
     private String longitude;
 
+
+    public Position(){}
+
+    public Position(int i, String latitude, String longitude) {
+    }
 }
