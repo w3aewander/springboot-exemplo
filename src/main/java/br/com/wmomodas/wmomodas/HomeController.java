@@ -28,7 +28,7 @@ public class HomeController {
 
     private static String position = "";
 
-    @RequestMapping("/")
+    @RequestMapping("/home")
     public String home(Model model){
 
         positionRepository.save(new Position(1,"0","0"));
