@@ -1,1 +1,1 @@
-web: gunicorn wmomodas
+web:  wmomodas:wmomodas
