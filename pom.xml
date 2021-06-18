@@ -112,22 +112,8 @@
 				<version>2.5.1</version>
 				<configuration>
 					<finalName>${project.name}</finalName>
-					<mainClass>br.wmomodas.wmomodas.WmomodasApplication</mainClass>
-					<layout>
-						jar
-					</layout>
+					<mainClass>br.com.wmomodas.wmomodas.WmomodasApplication</mainClass>
 				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>repackage</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>
