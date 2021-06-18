@@ -11,7 +11,7 @@
 	<groupId>br.com.wmomodas</groupId>
 	<artifactId>wmomodas</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>wmomodas</name>
 	<description>Projeto WMO Modas</description>
 	<properties>
@@ -112,7 +112,18 @@
 				<version>2.5.1</version>
 				<configuration>
 					<finalName>${project.name}</finalName>
+					<mainClass>br.wmomodas.wmomodas.WmomodasApplication</mainClass>
+					<layout>
+						jar
+					</layout>
 				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
