@@ -1,33 +1,52 @@
 <html lang="en" xmlns="https://www.thymeleaf.com" xmlns:th="https://www.thymeleaf.com"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="layouts/_layout">
+      layout:decorate="layouts/_layout" xmlns:sec="http://www.w3.org/1999/xhtml">
 
 
 <div layout:fragment="content">
 
-  <h1 class="text-danger">Nossos clientes</h1>
 
-  <table class="table table-hover table-striped">
+    <!--    <div sec:authorize="hasRole('USER')">Text visible to user.</div>-->
+    <!--    <div sec:authorize="hasRole('ADMIN')">Text visible to admin.</div>-->
+    <!--    -->
+    <!--    <div sec:authorize="isAuthenticated()">-->
+    <!--        Text visible only to authenticated users.-->
+    <!--    </div>-->
+    <!--    Authenticated username:-->
+    <!--    <div sec:authentication="name"></div>-->
+    <!--    Authenticated user roles:-->
+    <!--    <div sec:authentication="principal.authorities"></div>-->
 
-    <thead>
-       <tr>
-         <th>RegNo</th>
-         <th>Nome</th>
-         <th>E-mail</th>
-         <th>Celular</th>
-       </tr>
-    </thead>
-    <tbody>
-       <tr th:each="cliente, stat: ${clientes}">
 
-         <td th:text="${stat.index} +1"></td>
-         <td th:text="${cliente.getNome()}"></td>
-         <td th:text="${cliente.getEmail()}"></td>
-         <td th:text="${cliente.getCelular()}"></td>
 
-       </tr>
-    </tbody>
-  </table>
+
+    <div sec:authorize="hasRole('ADMIN')">
+
+        <div class="text-danger">Nossos clientes</div>
+
+        <table class="table table-hover table-striped">
+            <thead>
+            <tr>
+                <th>RegNo</th>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Celular</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="cliente, stat: ${clientes}">
+
+                <td th:text="${stat.index} +1"></td>
+                <td th:text="${cliente.getNome()}"></td>
+                <td th:text="${cliente.getEmail()}"></td>
+                <td th:text="${cliente.getCelular()}"></td>
+
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
 </div>
 
 
