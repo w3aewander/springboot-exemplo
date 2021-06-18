@@ -11,7 +11,7 @@ import java.util.List;
 @RequestMapping({"/position"})
 public class PositionController {
 
-    private PositionRepository repository;
+    private final PositionRepository repository;
 
     PositionController(PositionRepository positionRepository){
         this.repository = positionRepository;
